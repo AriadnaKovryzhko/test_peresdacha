@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма входа</title>
+</head>
+<body>
+
+<h2>Вход</h2>
+
+<form id="loginForm">
+    <label>Email:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label>Пароль:</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit">Войти</button>
+</form>
+
+<p id="result" style="font-weight: bold; margin-top: 15px;"></p>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const result = document.getElementById("result");
+
+    const correctEmail = "test@example.com";
+    const correctPassword = "123456";
+
+    if (email === correctEmail && password === correctPassword) {
+        result.textContent = "Все верно!";
+        result.style.color = "green";
+    } else {
+        result.textContent = "Неправильный логин или пароль!";
+        result.style.color = "red";
+    }
+});
+</script>
+
+</body>
+</html>
